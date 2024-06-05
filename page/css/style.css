@@ -1,0 +1,149 @@
+:root {
+  --item-size: 50px;
+  --bg-color: #d1d8e0;
+  --text-muted: #d9e8ed;
+  --text-primary: #7e949f;
+  --box-shadow: 5px 5px 15px #7d8286, -5px -5px 15px #ffffff;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: "JetBrains Mono", monospace;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-container {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.stripe {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 25px;
+  box-shadow: var(--box-shadow);
+  transition: 500ms;
+}
+
+.stripe li {
+  position: relative;
+  width: var(--item-size);
+  height: var(--item-size);
+}
+
+.stripe li span {
+  width: 100%;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 200ms;
+  color: var(--text-muted);
+  font-size: 1.2em; /* Slightly larger text */
+  font-weight: bold; /* Bold text */
+}
+
+.stripe li.selected span {
+  color: var(--text-primary);
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: var(--box-shadow);
+  background: var(--bg-color);
+}
+/* Estilos para el modal del reloj */
+.modal .clock-container {
+  /* Ajustes de tamaño y posición específicos para el modal */
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
+.modal .stripe {
+  /* Ajustes para las listas dentro del modal */
+  margin: 0 auto; /* Centrar las listas */
+  box-shadow: none; /* Eliminar sombras que puedan interferir con el estilo del modal */
+}
+
+.modal .stripe li span {
+  /* Ajustes para los números del reloj dentro del modal */
+  color: var(--text-primary); /* Asegurarse de que el color sea visible en el fondo del modal */
+  /* Otros ajustes de estilo si son necesarios */
+}
+
+/* Estilos Generales */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Contenedor Principal */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Estilos de las Tarjetas */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  margin: 10px;
+}
+
+.card h2 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.card p {
+  color: #666;
+  line-height: 1.5;
+}
+/* Estilo para oscurecer la pantalla */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 1; /* Asegúrate de que esté detrás del modal */
+}
+
+/* Estilos para el modal del reloj */
+#clockModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Asegúrate de que esté encima del overlay */
+  /* Resto de tus estilos para el modal */
+}
+
+/* Ajustes para separar las columnas de horas y minutos */
+.stripe:nth-child(6), .stripe:nth-child(4) {
+  margin-right: 50px; /* Espacio adicional a la derecha de las horas */
+}
+.stripe:nth-child(6), .stripe:nth-child(2) {
+  margin-right: 50px; /* Espacio adicional a la derecha de las horas */
+}
